@@ -3,9 +3,24 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TestController } from './app.test.controller';
 import { UserModule } from './user/user.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from './user/entities/user.entity';
 
 @Module({
-  imports: [UserModule],
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: 'localhost',
+      port: 5432,
+      password: '1234',
+      username: 'postgres',
+      entities: [User],
+      database: 'nt9',
+      synchronize: true,
+      // logging: true,
+    }),
+    UserModule,
+  ],
   controllers: [AppController, TestController],
   providers: [AppService],
   exports: [],
