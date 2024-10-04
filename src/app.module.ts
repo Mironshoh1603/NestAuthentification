@@ -5,6 +5,7 @@ import { TestController } from './app.test.controller';
 import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './user/entities/user.entity';
+import { ProductModule } from './product/product.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { User } from './user/entities/user.entity';
       // logging: true,
     }),
     UserModule,
+    ProductModule,
   ],
   controllers: [AppController, TestController],
   providers: [AppService],
