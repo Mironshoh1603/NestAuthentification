@@ -1,6 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  ManyToMany,
+  OneToMany,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { Photo } from './photo.entity';
+import { Laptop } from './laptop.entity';
 
 @Entity()
 export class User {
@@ -12,4 +20,8 @@ export class User {
   age: number;
   @OneToMany((type) => Photo, (photo) => photo.user)
   photos: Photo[];
+  @OneToOne((type) => Laptop, (user) => user.laptop)
+  user: User;
+  // @ManyToMany((type) => Follower, (user) => user.followers)
+  // followers: Follower[];
 }
