@@ -7,7 +7,8 @@ export class CreateUserDto {
   name: string;
   @IsNotEmpty()
   // @IsNumber()
-  @IsInt()
-  @Min(5)
+  // @IsInt()
+  // @Min(5)
   age: number;
+  photo: string;
 }

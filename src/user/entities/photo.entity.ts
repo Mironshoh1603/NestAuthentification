@@ -8,6 +8,6 @@ export class Photo {
   id: string;
   @Column({ type: 'varchar' })
   fileUrl: string;
-  @ManyToOne((type) => User, (user) => user.photos)
-  user: User;
+  // @ManyToOne((type) => User, (user) => user.photos)
+  // user: User;
 }

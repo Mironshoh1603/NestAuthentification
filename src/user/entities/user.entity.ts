@@ -18,8 +18,10 @@ export class User {
   name: string;
   @Column({ type: 'int' })
   age: number;
-  @OneToMany((type) => Photo, (photo) => photo.user)
-  photos: Photo[];
+  @Column({ type: 'varchar' })
+  photo: string;
+  // @OneToMany((type) => Photo, (photo) => photo.user)
+  // photos: Photo[];
   @OneToOne((type) => Laptop, (user) => user.laptop)
   user: User;
   // @ManyToMany((type) => Follower, (user) => user.followers)
