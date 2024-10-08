@@ -10,6 +10,7 @@ import { Laptop } from './user/entities/laptop.entity';
 import { Photo } from './user/entities/photo.entity';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -22,12 +23,14 @@ import { join } from 'path';
       database: 'nt9',
       entities: [User, Laptop, Photo],
       synchronize: true,
+      // logging: true,
     }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', './src/uploads'),
     }),
     UserModule,
     ProductModule,
+    AuthModule,
   ],
   controllers: [AppController, TestController],
   providers: [AppService],

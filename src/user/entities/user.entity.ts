@@ -12,6 +12,9 @@ import { Laptop } from './laptop.entity';
 
 @Entity()
 export class User {
+  toObject(): { [x: string]: any; password: any } {
+    throw new Error('Method not implemented.');
+  }
   @PrimaryGeneratedColumn()
   id: string;
   @Column({ type: 'varchar' })
@@ -20,6 +23,10 @@ export class User {
   age: number;
   @Column({ type: 'varchar' })
   photo: string;
+  @Column({ type: 'varchar' })
+  login: string;
+  @Column({ type: 'varchar' })
+  password: string;
   // @OneToMany((type) => Photo, (photo) => photo.user)
   // photos: Photo[];
   @OneToOne((type) => Laptop, (user) => user.laptop)
